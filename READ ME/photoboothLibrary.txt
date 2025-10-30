@@ -1,0 +1,12 @@
+opencv-python
+Pillow
+qrcode[pil]
+python-escpos
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+requests
+httplib2
+pyusb
+numpy
+packaging
