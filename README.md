@@ -1,6 +1,7 @@
 # CustomPhotoboothAndGIF
 Being able to customize the photobooth with physical button and turning it into gif-QR code accessable.
 
+## Need to use your own Credentials.JSON
 ## V.1.2.0
 pip install pygame \
 Playing Sound ( Countdown )
