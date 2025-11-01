@@ -3,16 +3,21 @@ import cv2, time, os
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
+import pygame
+from sound import play_sound
+pygame.mixer.init()
 from config import (
     SAVE_ROOT, FRAME_INTERVAL, SHOT_TIMES, GIF_DURATION,GIF_DURATION_TIME,
-    TARGET_GIF_WIDTH, GIF_COLORS, FONT_PATH
+    TARGET_GIF_WIDTH, GIF_COLORS, FONT_PATH, COUNT_SOUND_PATHS
 )
 from image_edit import crop_frame
 from countDown import draw_countdown_overlay
 
 # ===== gif record =====
-
 def record_gif(cap):
+    sound3 = False
+    sound2 = False
+    sound1 = False
     frames = []
     stills = []
     start = time.time()
@@ -27,6 +32,7 @@ def record_gif(cap):
     print("🎥 촬영 시작 — crop 적용됨")
 
     while True:
+
         ret, frame = cap.read()
         if not ret:
             continue
@@ -56,9 +62,25 @@ def record_gif(cap):
             trigger_time = t + FLASH_OFFSET
             if abs(elapsed - trigger_time) < FLASH_TOLERANCE and flash_start is None:
                 flash_start = now
+                play_sound(COUNT_SOUND_PATHS[0])
+                sound3 = False
+                sound2 = False
+                sound1 = False
 
         # 디스플레이 오버레이
-        disp = draw_countdown_overlay(mirrored_frame, countdown, countdown_elapsed)
+        if countdown == 5 or countdown == 4:
+            disp = draw_countdown_overlay(mirrored_frame, 0, countdown_elapsed)
+        else:
+            if countdown == 3 and not sound3:
+                        play_sound(COUNT_SOUND_PATHS[3])
+                        sound3 = True
+            elif countdown == 2 and not sound2:
+                        play_sound(COUNT_SOUND_PATHS[2])
+                        sound2 = True
+            elif countdown == 1 and not sound1:
+                        play_sound(COUNT_SOUND_PATHS[1])
+                        sound1 = True
+            disp = draw_countdown_overlay(mirrored_frame, countdown, countdown_elapsed)
 
         # 플래시 효과
         if flash_start is not None and (now - flash_start) < flash_duration:
