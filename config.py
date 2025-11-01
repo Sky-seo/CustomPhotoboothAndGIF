@@ -20,11 +20,11 @@ UPLOAD_FILE_TYPE ="layout" # "animation" or "layout"
 # photo timing control
 SHOT_TIMES = [4, 8]
 COUNT_SOUND_PATHS = {
-    4: "sound/ready.mp3",
-    3: "sound/3.mp3",
-    2: "sound/2.mp3",
-    1: "sound/1.mp3",
-    0: "sound/shot.mp3"
+    4: "sound_updated/ready.mp3",
+    3: "sound_updated/3.mp3",
+    2: "sound_updated/2.mp3",
+    1: "sound_updated/1.mp3",
+    0: "sound_updated/shot.mp3"
     }
 
 # Layout Setting
