@@ -18,8 +18,14 @@ START_TEXT = "PRESS THE BUTTON!"
 UPLOAD_FILE_TYPE ="layout" # "animation" or "layout"
 
 # photo timing control
-SHOT_TIMES = [4, 9]
-
+SHOT_TIMES = [4, 8]
+COUNT_SOUND_PATHS = {
+    4: "sound/ready.mp3",
+    3: "sound/3.mp3",
+    2: "sound/2.mp3",
+    1: "sound/1.mp3",
+    0: "sound/shot.mp3"
+    }
 
 # Layout Setting
 TOP_MARGIN = 50

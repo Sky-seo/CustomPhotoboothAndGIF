@@ -6,8 +6,10 @@ from image_edit import process_photo, build_strip, build_layout_gif, center_prev
 from googleDrive import upload_to_google_drive
 from config import LOGO_PATH, FONT_PATH, START_TEXT, START_font, UPLOAD_FILE_TYPE
 from printer import print_strip
-from config import PRINTER_VENDOR_ID, PRINTER_PRODUCT_ID
-
+import pygame
+from sound import play_sound
+from config import COUNT_SOUND_PATHS
+pygame.mixer.init()
 
 def main():
     cap = cv2.VideoCapture(0)
@@ -49,6 +51,10 @@ def main():
         if key == ord('q'):
             break
         elif key == ord(' '):
+            #"ready" sound play
+            print("🔊 준비 사운드 재생")
+            play_sound(COUNT_SOUND_PATHS[4])
+
             # 촬영 시에도 crop 적용된 상태로 유지됨
             gif_path, stills, save_dir = record_gif(cap)
             photos = [process_photo(f) for f in stills]
