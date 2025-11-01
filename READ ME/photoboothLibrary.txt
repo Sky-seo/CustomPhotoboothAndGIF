@@ -8,5 +8,7 @@ google-auth-oauthlib
 requests
 httplib2
 pyusb
+libusb
 numpy
 packaging
+pygame
