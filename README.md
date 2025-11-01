@@ -3,11 +3,12 @@ Being able to customize the photobooth with physical button and turning it into 
 
 ## Need to use your own Credentials.JSON
 ## V.1.2.0
+brew install sdl2 sdl2_image sdl2_mixer sdl2_ttf \
 pip install pygame \
 Playing Sound ( Countdown )
 
 ### Documentation Here.
-[Photobooth_Documentation](https://tungsten-waterfall-ae7.notion.site/HolyWin-Version-2993d345d4aa800b9c30eb6a7a32cc5f?pvs=74)\
+[Photobooth_Documentation](https://tungsten-waterfall-ae7.notion.site/HolyWin-Version-2993d345d4aa800b9c30eb6a7a32cc5f?pvs=74)
 
 1. Open “Terminal”
 
