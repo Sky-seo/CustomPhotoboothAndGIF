@@ -2,7 +2,7 @@
 Being able to customize the photobooth with physical button and turning it into gif-QR code accessable.
 
 ## V.1.2.0
-pip install pydub
+pip install pydub \
 brew install ffmpeg
 
 ### Documentation Here.
